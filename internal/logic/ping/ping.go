@@ -1,5 +1,4 @@
-//package ping 健康检测逻辑
-
+// Package ping 健康检测逻辑
 package ping
 
 import (
@@ -22,7 +21,7 @@ func NewPingLogic(ctx *app.RequestContext, svcCtx *svc.ServiceContext) *PingLogi
 
 func (l *PingLogic) Ping(_ *types.PingRequest) (resp *types.PingResponse, err error) {
 	resp = &types.PingResponse{
-		Version: "v1",
+		Version: "0.1.0",
 	}
 	return resp, nil
 }

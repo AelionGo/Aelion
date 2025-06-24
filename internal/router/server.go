@@ -1,8 +1,7 @@
-// package router 定义路由和处理请求
-
 // Filename: server.go
 // Description: HTTP服务器
 
+// Package router 定义路由和处理请求
 package router
 
 import (
@@ -12,7 +11,7 @@ import (
 	"strings"
 )
 
-func NewServer(c config.ServerConfig) *server.Hertz {
+func NewServer(c *config.ServerConfig) *server.Hertz {
 	port := strconv.Itoa(c.Port)
 	return server.Default(server.WithHostPorts(strings.Join([]string{c.Host, port}, ":")), server.WithDisablePrintRoute(true))
 }

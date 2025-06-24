@@ -11,7 +11,6 @@ import (
 	"github.com/AelionGo/Aelion/internal/config"
 	"github.com/AelionGo/Aelion/internal/router"
 	"github.com/AelionGo/Aelion/internal/svc"
-	"github.com/zeromicro/go-zero/core/conf"
 )
 
 var configFile = flag.String("f", "etc/config.yaml", "the config file")
@@ -21,11 +20,13 @@ func main() {
 	flag.Parse()
 
 	// 加载配置文件
-	var c config.Config
-	conf.MustLoad(*configFile, &c)
+	c, err := config.Init(*configFile)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to load config: %v", err))
+	}
 
 	// 创建HTTP服务器
-	server := router.NewServer(c.Server)
+	server := router.NewServer(&c.Server)
 
 	// 创建服务上下文
 	svcCtx := svc.NewServiceContext(c)

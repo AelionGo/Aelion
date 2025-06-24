@@ -1,8 +1,7 @@
-// package router 定义路由和处理请求
-
 // Filename: routes.go
 // Description: HTTP路由
 
+// Package router 定义路由和处理请求
 package router
 
 import (

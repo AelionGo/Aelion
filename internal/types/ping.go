@@ -1,8 +1,7 @@
-// package types 请求和响应体的定义
-
 // Filename: ping.go
 // Description: ping响应体
 
+// Package types 请求和响应体的定义
 package types
 
 type PingRequest struct {
