@@ -5,7 +5,7 @@ package ping
 
 import (
 	"context"
-	logic "github.com/AelionGo/Aelion/internal/logic/ping"
+	logic "github.com/AelionGo/Aelion/internal/logic/v1/ping"
 	"github.com/AelionGo/Aelion/internal/svc"
 	"github.com/AelionGo/Aelion/internal/types"
 	"github.com/cloudwego/hertz/pkg/app"

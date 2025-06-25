@@ -4,8 +4,11 @@ go 1.24.2
 
 require (
 	github.com/cloudwego/hertz v0.10.0
+	github.com/google/uuid v1.6.0
 	github.com/mojocn/base64Captcha v1.3.8
 	github.com/zeromicro/go-zero v1.8.4
+	golang.org/x/crypto v0.33.0
+	golang.org/x/image v0.23.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/driver/sqlite v1.6.0
@@ -48,8 +51,6 @@ require (
 	go.opentelemetry.io/otel/trace v1.24.0 // indirect
 	go.uber.org/automaxprocs v1.6.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
-	golang.org/x/crypto v0.33.0 // indirect
-	golang.org/x/image v0.23.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect

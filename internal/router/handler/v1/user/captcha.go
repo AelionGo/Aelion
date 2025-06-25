@@ -2,7 +2,7 @@ package user
 
 import (
 	"context"
-	logic "github.com/AelionGo/Aelion/internal/logic/user"
+	logic "github.com/AelionGo/Aelion/internal/logic/v1/user"
 	"github.com/AelionGo/Aelion/internal/svc"
 	"github.com/AelionGo/Aelion/internal/types"
 	"github.com/AelionGo/Aelion/pkg/errors"
