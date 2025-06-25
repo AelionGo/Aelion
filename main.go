@@ -11,6 +11,7 @@ import (
 	"github.com/AelionGo/Aelion/internal/config"
 	"github.com/AelionGo/Aelion/internal/router"
 	"github.com/AelionGo/Aelion/internal/svc"
+	"github.com/AelionGo/Aelion/models"
 )
 
 var configFile = flag.String("f", "etc/config.yaml", "the config file")
@@ -18,6 +19,12 @@ var configFile = flag.String("f", "etc/config.yaml", "the config file")
 func main() {
 	// 解析命令行参数
 	flag.Parse()
+
+	//初始化数据库连接
+	err := models.InitDB()
+	if err != nil {
+		panic(fmt.Sprintf("Failed to initialize database: %v", err))
+	}
 
 	// 加载配置文件
 	c, err := config.Init(*configFile)
