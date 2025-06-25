@@ -5,6 +5,7 @@
 package config
 
 import (
+	"fmt"
 	"github.com/AelionGo/Aelion/models"
 	"github.com/zeromicro/go-zero/core/conf"
 )
@@ -43,6 +44,7 @@ func get(key string) (string, error) {
 	}
 
 	res, err := m.GetOne(key)
+	fmt.Println(res, err)
 	if err != nil {
 		return "", err
 	}

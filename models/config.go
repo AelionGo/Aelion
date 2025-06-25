@@ -1,8 +1,8 @@
 package models
 
 type Config struct {
-	Key   string `gorm:"column:key;type:varchar(64);primary_key;comment:配置键"`
-	Value string `gorm:"column:value;type:varchar(256);comment:配置值"`
+	Key   string `gorm:"column:config_key;type:varchar(64);primary_key;comment:配置键"`
+	Value string `gorm:"column:config_value;type:varchar(256);comment:配置值"`
 }
 
 type ConfigModel struct {
@@ -18,7 +18,7 @@ func (c *ConfigModel) TableName() string {
 
 func (c *ConfigModel) GetOne(key string) (string, error) {
 	var config Config
-	err := db.Where("key = ?", key).First(&config).Error
+	err := db.Where("config_key = ?", key).First(&config).Error
 	if err != nil {
 		return "", err
 	}

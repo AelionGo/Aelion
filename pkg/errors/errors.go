@@ -4,13 +4,21 @@ package errors
 type Code = int
 
 const (
-	OK          = 0
+	OK = 0
+
 	ParamsError = 40000
+
+	GetConfigItemError   = 50000
+	CaptchaGenerateError = 50001
 )
 
 var errMsg = map[int]string{
-	OK:          "",
+	OK: "",
+
 	ParamsError: "request params error",
+
+	GetConfigItemError:   "get config item error",
+	CaptchaGenerateError: "captcha generate error",
 }
 
 func GetMsg(code int) string {
