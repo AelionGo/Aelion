@@ -1,7 +1,7 @@
 // Filename: config.go
 // Description: 配置结构与初始化
 
-// Package config 初始化和管理配置信息
+// Package config 配置项的读取和设置
 package config
 
 import (
@@ -31,8 +31,6 @@ func Init(configFile string) (*Config, error) {
 
 	m = models.NewConfigModel()
 	cache = make(map[string]string)
-
-	//TODO: 从MySQL加载其他配置
 
 	return &c, nil
 }
