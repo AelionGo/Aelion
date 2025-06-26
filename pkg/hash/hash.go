@@ -21,7 +21,7 @@ func CheckPasswordHash(password, hash string) bool {
 	return true
 }
 
-// 随机生成一个十位密码
+// GenerateRandomPassword 随机生成一个十位密码
 func GenerateRandomPassword() string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	password := make([]byte, 10)
@@ -29,4 +29,14 @@ func GenerateRandomPassword() string {
 		password[i] = charset[rand.Intn(len(charset))]
 	}
 	return string(password)
+}
+
+// GenerateRandomJwtSecret 随机生成一个十六位 JWT 密钥
+func GenerateRandomJwtSecret() string {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	secret := make([]byte, 16)
+	for i := range secret {
+		secret[i] = charset[rand.Intn(len(charset))]
+	}
+	return string(secret)
 }

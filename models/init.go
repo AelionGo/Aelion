@@ -2,7 +2,7 @@ package models
 
 import (
 	"fmt"
-	"github.com/AelionGo/Aelion/pkg/auth/hash"
+	"github.com/AelionGo/Aelion/pkg/hash"
 	"github.com/google/uuid"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
@@ -105,7 +105,7 @@ func InitDB() error {
 		group := &Group{
 			Id:          adminGroupId,
 			Name:        "default admin group",
-			Description: "默认用户组",
+			Description: "默认管理员组",
 			Type:        GroupTypeAdmin, // 默认是管理员组
 			Policy:      policyId,       // 关联默认策略
 		}

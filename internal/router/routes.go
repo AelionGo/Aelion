@@ -16,5 +16,6 @@ func RegisterRoutes(s *server.Hertz, svcCtx *svc.ServiceContext) {
 	v1.GET("/ping", ping.PingHandler(svcCtx)) // 健康检查
 
 	user := v1.Group("/user")
-	user.GET("/captcha", userx.CaptchaHandler(svcCtx)) // 获取图形验证码
+	user.GET("/captcha", userx.CaptchaHandler(svcCtx))    // 获取图形验证码
+	user.POST("/register", userx.RegisterHandler(svcCtx)) // 用户注册
 }

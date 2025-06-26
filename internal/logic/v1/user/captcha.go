@@ -3,7 +3,7 @@ package user
 import (
 	"github.com/AelionGo/Aelion/internal/svc"
 	"github.com/AelionGo/Aelion/internal/types"
-	"github.com/AelionGo/Aelion/pkg/auth/captcha"
+	"github.com/AelionGo/Aelion/pkg/captcha"
 	"github.com/AelionGo/Aelion/pkg/errors"
 	"github.com/AelionGo/Aelion/pkg/msg"
 	"github.com/cloudwego/hertz/pkg/app"
