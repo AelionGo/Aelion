@@ -12,6 +12,7 @@ const (
 	PhoneExists        = 40003
 	UserNotFound       = 40004
 	PasswordError      = 40005
+	PermissionDenied   = 40006
 
 	GetConfigItemError   = 50000
 	CaptchaGenerateError = 50001
@@ -29,6 +30,7 @@ var errMsg = map[int]string{
 	PhoneExists:        "phone already exists",
 	UserNotFound:       "user not found",
 	PasswordError:      "password error",
+	PermissionDenied:   "permission denied",
 
 	GetConfigItemError:   "get config item error",
 	CaptchaGenerateError: "captcha generate error",

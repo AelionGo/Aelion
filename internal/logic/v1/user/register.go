@@ -2,7 +2,7 @@ package user
 
 import (
 	"github.com/AelionGo/Aelion/internal/svc"
-	"github.com/AelionGo/Aelion/internal/types"
+	types "github.com/AelionGo/Aelion/internal/types/user"
 	"github.com/AelionGo/Aelion/models"
 	"github.com/AelionGo/Aelion/pkg/auth"
 	"github.com/AelionGo/Aelion/pkg/captcha"
@@ -90,22 +90,12 @@ func (l *RegisterLogic) Register(req *types.RegisterRequest) (resp *msg.Response
 		Avatar:   req.Avatar,
 		Nickname: req.Nickname,
 	}
-	if req.Group != "" {
-		g := models.NewGroupModel()
-		_, err := g.GetOneByID(req.Group)
-		if err != nil {
-			resp = msg.GetResponse(errors.ParamsError, nil)
-			return resp, err
-		}
-		user.Group = req.Group
-	} else {
-		group, err := l.svcCtx.Config.DefaultGroup()
-		if err != nil {
-			resp = msg.GetResponse(errors.GetConfigItemError, nil)
-			return resp, err
-		}
-		user.Group = group
+	group, err := l.svcCtx.Config.DefaultGroup()
+	if err != nil {
+		resp = msg.GetResponse(errors.GetConfigItemError, nil)
+		return resp, err
 	}
+	user.Group = group
 
 	enabled, err = l.svcCtx.Config.EmailValidationEnabled()
 	if err != nil {

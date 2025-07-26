@@ -5,22 +5,17 @@ import (
 	logic "github.com/AelionGo/Aelion/internal/logic/v1/user"
 	"github.com/AelionGo/Aelion/internal/svc"
 	types "github.com/AelionGo/Aelion/internal/types/user"
-	"github.com/AelionGo/Aelion/pkg/errors"
-	"github.com/AelionGo/Aelion/pkg/msg"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 )
 
-func LoginHandler(svcCtx *svc.ServiceContext) app.HandlerFunc {
+func InfoHandler(svcCtx *svc.ServiceContext) app.HandlerFunc {
 	return func(c context.Context, ctx *app.RequestContext) {
-		req := &types.LoginRequest{}
-		if err := ctx.BindJSON(req); err != nil {
-			ctx.JSON(consts.StatusOK, msg.GetResponse(errors.ParamsError, nil))
-			return
-		}
+		req := &types.InfoRequest{}
+		req.Id = ctx.Query("id")
 
-		l := logic.NewLoginLogic(ctx, svcCtx)
-		resp, _ := l.Login(req)
+		l := logic.NewInfoLogic(ctx, svcCtx)
+		resp, _ := l.Info(req)
 		ctx.JSON(consts.StatusOK, resp)
 	}
 }

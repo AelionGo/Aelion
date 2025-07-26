@@ -2,7 +2,7 @@ package user
 
 import (
 	"github.com/AelionGo/Aelion/internal/svc"
-	"github.com/AelionGo/Aelion/internal/types"
+	types "github.com/AelionGo/Aelion/internal/types/user"
 	"github.com/AelionGo/Aelion/models"
 	"github.com/AelionGo/Aelion/pkg/auth"
 	"github.com/AelionGo/Aelion/pkg/captcha"

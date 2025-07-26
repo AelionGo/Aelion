@@ -1,5 +1,4 @@
-// Package types 请求和响应体的定义
-package types
+package user
 
 type CaptchaRequest struct {
 	Type string

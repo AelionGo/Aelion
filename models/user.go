@@ -9,7 +9,7 @@ const (
 )
 
 type User struct {
-	Id       string `gorm:"column:id;type:varchar(64);primary_key;comment:用户ID"`
+	Id       string `gorm:"column:id;type:varchar(128);primary_key;comment:用户ID"`
 	Email    string `gorm:"column:email;type:varchar(128);unique;comment:用户邮箱"`
 	Phone    string `gorm:"column:phone;type:varchar(16);unique;comment:用户手机号"` //邮箱和手机号至少有一个，且分别唯一
 	Password string `gorm:"column:password;type:varchar(128);not null;comment:用户密码"`

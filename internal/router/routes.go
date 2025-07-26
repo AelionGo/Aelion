@@ -5,6 +5,7 @@
 package router
 
 import (
+	"github.com/AelionGo/Aelion/internal/middleware/auth"
 	"github.com/AelionGo/Aelion/internal/router/handler/v1/ping"
 	userx "github.com/AelionGo/Aelion/internal/router/handler/v1/user"
 	"github.com/AelionGo/Aelion/internal/svc"
@@ -16,7 +17,8 @@ func RegisterRoutes(s *server.Hertz, svcCtx *svc.ServiceContext) {
 	v1.GET("/ping", ping.PingHandler(svcCtx)) // 健康检查
 
 	user := v1.Group("/user")
-	user.GET("/captcha", userx.CaptchaHandler(svcCtx))    // 获取图形验证码
-	user.POST("/register", userx.RegisterHandler(svcCtx)) // 用户注册
-	user.POST("/login", userx.LoginHandler(svcCtx))       // 用户登录
+	user.GET("/captcha", userx.CaptchaHandler(svcCtx))                           // 获取图形验证码
+	user.POST("/register", userx.RegisterHandler(svcCtx))                        // 用户注册
+	user.POST("/login", userx.LoginHandler(svcCtx))                              // 用户登录
+	user.GET("/info", auth.JWTAuthMiddleware(svcCtx), userx.InfoHandler(svcCtx)) // 获取用户信息
 }

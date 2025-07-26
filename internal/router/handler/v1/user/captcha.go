@@ -4,7 +4,7 @@ import (
 	"context"
 	logic "github.com/AelionGo/Aelion/internal/logic/v1/user"
 	"github.com/AelionGo/Aelion/internal/svc"
-	"github.com/AelionGo/Aelion/internal/types"
+	types "github.com/AelionGo/Aelion/internal/types/user"
 	"github.com/AelionGo/Aelion/pkg/errors"
 	"github.com/AelionGo/Aelion/pkg/msg"
 	"github.com/cloudwego/hertz/pkg/app"
