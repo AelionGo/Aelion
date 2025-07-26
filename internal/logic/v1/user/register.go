@@ -6,6 +6,7 @@ import (
 	"github.com/AelionGo/Aelion/models"
 	"github.com/AelionGo/Aelion/pkg/auth"
 	"github.com/AelionGo/Aelion/pkg/captcha"
+	"github.com/AelionGo/Aelion/pkg/consts"
 	"github.com/AelionGo/Aelion/pkg/errors"
 	"github.com/AelionGo/Aelion/pkg/hash"
 	"github.com/AelionGo/Aelion/pkg/msg"
@@ -28,19 +29,19 @@ func NewRegisterLogic(ctx *app.RequestContext, svcCtx *svc.ServiceContext) *Regi
 
 func (l *RegisterLogic) Register(req *types.RegisterRequest) (resp *msg.Response, err error) {
 	//校验参数
-	if (req.Email == "" && req.Phone == "") || len(req.Email) > 50 || len(req.Phone) > 20 {
+	if (req.Email == "" && req.Phone == "") || len(req.Email) > consts.MaxEmailLength || len(req.Phone) > consts.MaxPhoneLength {
 		resp = msg.GetResponse(errors.ParamsError, nil)
 		return resp, nil
 	}
-	if req.Password == "" || len(req.Password) < 8 || len(req.Password) > 20 {
+	if req.Password == "" || len(req.Password) < consts.MinPasswordLength || len(req.Password) > consts.MaxPasswordLength {
 		resp = msg.GetResponse(errors.ParamsError, nil)
 		return resp, nil
 	}
-	if req.Nickname == "" || len(req.Nickname) > 50 {
+	if req.Nickname == "" || len(req.Nickname) > consts.MaxNicknameLength {
 		resp = msg.GetResponse(errors.ParamsError, nil)
 		return resp, nil
 	}
-	if len(req.Avatar) > 50 {
+	if len(req.Avatar) > consts.MaxAvatarLength {
 		resp = msg.GetResponse(errors.ParamsError, nil)
 		return resp, nil
 	}

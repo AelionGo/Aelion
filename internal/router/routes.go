@@ -18,4 +18,5 @@ func RegisterRoutes(s *server.Hertz, svcCtx *svc.ServiceContext) {
 	user := v1.Group("/user")
 	user.GET("/captcha", userx.CaptchaHandler(svcCtx))    // 获取图形验证码
 	user.POST("/register", userx.RegisterHandler(svcCtx)) // 用户注册
+	user.POST("/login", userx.LoginHandler(svcCtx))       // 用户登录
 }

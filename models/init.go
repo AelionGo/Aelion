@@ -21,7 +21,7 @@ func InitDB() error {
 	var err error
 
 	//默认使用SQLite
-	if sqlType == "" {
+	if sqlType == "" || sqlType == "sqlite" {
 		//获取用户指定的文件路径
 		sqlFile := os.Getenv("AL_DB_File")
 		if sqlFile == "" {

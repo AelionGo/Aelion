@@ -10,6 +10,8 @@ const (
 	CaptchaVerifyError = 40001
 	EmailExists        = 40002
 	PhoneExists        = 40003
+	UserNotFound       = 40004
+	PasswordError      = 40005
 
 	GetConfigItemError   = 50000
 	CaptchaGenerateError = 50001
@@ -25,6 +27,8 @@ var errMsg = map[int]string{
 	CaptchaVerifyError: "captcha verify error",
 	EmailExists:        "email already exists",
 	PhoneExists:        "phone already exists",
+	UserNotFound:       "user not found",
+	PasswordError:      "password error",
 
 	GetConfigItemError:   "get config item error",
 	CaptchaGenerateError: "captcha generate error",
